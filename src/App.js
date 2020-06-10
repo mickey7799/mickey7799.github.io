@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Pages from './pages';
+//import Pages from './pages';
 import { InfoContext } from "../src/contexts/infoContext";
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
   if (!info) {
     return <div />;
   }
-
-  return <Pages user={info} />;
+  return <div>Hi</div>
+  // return <Pages user={info} />;
 }
 
 export default App;
