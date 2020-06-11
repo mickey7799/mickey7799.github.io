@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { white } from '@carbon/colors'
+import styled from 'styled-components';
+import { white } from '@carbon/colors';
 import React, {useContext} from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle, Paragraph } from '../styles';
