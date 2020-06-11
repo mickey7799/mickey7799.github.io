@@ -7,6 +7,7 @@ const InfoContextProvider = props => {
         fetch('https://gitconnected.com/v1/portfolio/mickey7799')
             .then(res => res.json())
             .then(user => {
+                console.log(user);
                 setInfo(user);
             });
     }, []);
