@@ -1,42 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ArrowRight16 } from '@carbon/icons-react';
 
-import { HeaderContainer, Header, Image, ViewResumeLink } from './styles';
+import { HeaderContainer, MainHeader, Image, ViewResumeLink } from './styles';
+import { InfoContext } from '../../contexts/infoContext';
 
-const UserHeader = ({ user }) => {
+const Header = () => {
+  const { info } = useContext(InfoContext);
   const location = useLocation();
 
   return (
     <HeaderContainer isHome={location.pathname === '/'}>
-      <Header>
-        <Image src={user.basics.picture} />
+      <MainHeader>
+        <Image src={info.basics.picture} />
         <div>
-          <h2>{user.basics.name}</h2>
+          <h2>{info.basics.name}</h2>
           <h4>
             <a
-              href={`https://gitconnected.com/${user.basics.username}`}
+              href={`https://gitconnected.com/${info.basics.username}`}
               target="_blank"
               rel="noreferrer noopener"
             >
-              @{user.basics.username}
+              @{info.basics.username}
             </a>
           </h4>
-          <p>{user.basics.label}</p>
-          <p>Coding in {user.basics.region}</p>
-          <p>{user.basics.yearsOfExperience} years of experience as a developer</p>
-          <p>{user.basics.headline}</p>
+          <p>{info.basics.label}</p>
+          <p>Coding in {info.basics.region}</p>
+          <p>{info.basics.yearsOfExperience} years of experience as a developer</p>
+          <p>{info.basics.headline}</p>
           <p>
             Blog:{' '}
-            <a href={user.basics.blog} target="_blank" rel="noreferrer noopener">
-              {user.basics.blog}
+            <a href={info.basics.blog} target="_blank" rel="noreferrer noopener">
+              {info.basics.blog}
             </a>
           </p>
         </div>
-      </Header>
+      </MainHeader>
       <div>
         <ViewResumeLink
-          href={`https://gitconnected.com/${user.basics.username}/resume`}
+          href={`https://gitconnected.com/${info.basics.username}/resume`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -48,4 +50,4 @@ const UserHeader = ({ user }) => {
   );
 };
 
-export default UserHeader;
+export default Header;

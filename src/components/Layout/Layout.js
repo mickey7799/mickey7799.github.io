@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Content } from 'carbon-components-react/lib/components/UIShell';
-import React from 'react';
+import React, { useContext } from 'react';
 import Sidebar from '../Sidebar';
-import Header from '../Header';
-import MobileNav from '../MobileNav';
+import Header from '../Header/Header';
+import MobileNav from '../MobileNav/MobileNav';
+
 
 export const StyledContent = styled(Content)`
   min-height: 100vh;
@@ -11,13 +12,14 @@ export const StyledContent = styled(Content)`
     margin-left: 0 !important;
   }
 `
-const Layout = ({ info, children }) => {
+const Layout = ({ children }) => {
+    
     return (
       <>
         <MobileNav />
         <Sidebar />
         <StyledContent>
-          <Header info={info} />
+          <Header />
           <div>{children}</div>
         </StyledContent>
       </>
