@@ -12,12 +12,16 @@ export const WorkItem = styled.li`
 `
 
 export const WorkTitle = styled.h4`
-  font-weight: bold;
+  font-weight: 700;
+  color: #FF8C00;
 `
 
 export const JobTitle = styled.p`
   font-weight: bold;
   display: inline-block;
+`
+export const JobDescription = styled.p`
+  margin-top: 0.6rem;
 `
 
 const Work = () => {
@@ -34,10 +38,15 @@ const Work = () => {
                   <JobTitle>{work.company}</JobTitle> <span>{work.location}</span>
                   <span> &sdot; </span>
                   <span>
-                    {work.start.year} to {work.end.year}
+                    {work.start.year}/{work.start.month} to {work.end.year}/{work.end.month}
                   </span>
                 </div>
-                <Paragraph>{work.summary}</Paragraph>
+                <Paragraph>
+                    {work.highlights.map((highlight, i) => (
+                        <JobDescription>- {highlight}</JobDescription>
+                    ))}
+                
+                </Paragraph>
               </WorkItem>
             ))}
           </ul>

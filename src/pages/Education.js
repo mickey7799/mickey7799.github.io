@@ -12,7 +12,8 @@ export const EducationItem = styled.li`
 `
 
 export const Institution = styled.h4`
-  font-weight: bold;
+  font-weight: 700;
+  color: #FF8C00;
 `
 
 export const Degree = styled.p`
@@ -29,7 +30,7 @@ const Education = () => {
           <ul>
             {info.education.map((education, i) => (
               <EducationItem key={i}>
-                <Institution>{education.position}</Institution>
+                <Institution>{education.institution}</Institution>
                 <div>
                   <Degree>
                     {education.studyType}, {education.area}

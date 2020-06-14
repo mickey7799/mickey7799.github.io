@@ -10,8 +10,15 @@ export const StyledSideNav = styled(SideNav)`
     display: none;
   }
 `
+
+export const StyledSideNavItems = styled(SideNavItems)`
+  font-size: 5rem;
+  margin-top: 1rem;
+`
+
+
 const items = [
-    { name: 'Me', path: '/' },
+    { name: 'About', path: '/' },
     { name: 'Projects', path: '/projects' },
     { name: 'Work', path: '/work' },
     { name: 'Education', path: '/education' },
@@ -22,7 +29,7 @@ const Sidebar = () => {
 
     return (
         <StyledSideNav isFixedNav expanded isChildOfHeader={false} aria-label="Side navigation">
-            <SideNavItems>
+            <StyledSideNavItems>
                 {items.map(i => (
                     <SideNavLink
                         isActive={
@@ -35,7 +42,7 @@ const Sidebar = () => {
                         {i.name}
                     </SideNavLink>
                 ))}
-            </SideNavItems>
+            </StyledSideNavItems>
         </StyledSideNav>
     );
 };

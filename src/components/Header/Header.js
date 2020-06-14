@@ -36,7 +36,7 @@ const Header = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span>View Résumé</span>
+          <span>View Resume</span>
           <ArrowRight16 />
         </ViewResumeLink>
       </div>
