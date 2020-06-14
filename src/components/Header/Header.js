@@ -25,15 +25,9 @@ const Header = () => {
             </a>
           </h4>
           <p>{info.basics.label}</p>
-          <p>Coding in {info.basics.region}</p>
-          <p>{info.basics.yearsOfExperience} years of experience as a developer</p>
+          <p>{info.basics.region}</p>
           <p>{info.basics.headline}</p>
-          <p>
-            Blog:{' '}
-            <a href={info.basics.blog} target="_blank" rel="noreferrer noopener">
-              {info.basics.blog}
-            </a>
-          </p>
+          
         </div>
       </MainHeader>
       <div>
