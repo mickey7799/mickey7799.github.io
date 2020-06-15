@@ -14,7 +14,7 @@ const Pages = () => {
         return <Loader />;
     }
     return (
-        <HashRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
             <Switch>
                 <Route exact path="/">
                     <Me/>
