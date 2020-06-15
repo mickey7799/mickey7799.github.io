@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle, Pill } from '../styles';
 import { InfoContext } from "../contexts/infoContext";
+import ProjectCard from '../components/ProjectCard';
 
 export const ProjectItem = styled.li`
   margin-top: 1rem;
@@ -24,7 +25,8 @@ const Projects = () => {
       <Layout>
         <div>
           <SectionTitle>Projects</SectionTitle>
-          <ul>
+          <ProjectCard/>
+          {/* <ul>
             {info.projects.map((project, i) => (
               <ProjectItem key={i}>
                 <ProjectTitle>{project.name}</ProjectTitle>
@@ -36,7 +38,7 @@ const Projects = () => {
                 </SkillContainer>
               </ProjectItem>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </Layout>
     );

@@ -12,7 +12,6 @@ export const StyledSideNav = styled(SideNav)`
 `
 
 export const StyledSideNavItems = styled(SideNavItems)`
-  font-size: 5rem;
   margin-top: 1rem;
 `
 

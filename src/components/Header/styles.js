@@ -29,7 +29,7 @@ export const ViewResumeLink = styled.a`
   font-weight: bold;
   align-items: center;
   margin-top: 1rem;
-  background-color: #1E90FF;
+  background-color: #FF7417;
   transition: background-color 250ms ease;
   &:hover {
     background-color: #2ecc40;
