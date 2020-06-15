@@ -5,25 +5,8 @@ import { InfoContext } from '../contexts/infoContext';
 
 const Card = styled.div`
     display: flex;
-    height: auto;
-    width: 355px;
-    margin: auto;
-    margin-top: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 0.75px solid #e5e5e5;
-    border-radius: 7px;
-    background-color: #fcfcfc;
-    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, .1);
-    @media (max-width: 769px){
-        margin-top: 5em;
-        min-width: 353.5px;
-    }
-`;
-const CardFront = styled.div`
-    display: flex;
-    height: 20em;
-    width: 30em;
+    height: 15em;
+    width: 25em;
     margin: auto;
     margin-top: 20px;
     flex-direction: column;
@@ -42,60 +25,8 @@ const CardFront = styled.div`
 
 const Wrapper = styled.div`
     display: flex;
-    margin-bottom: 10px;
-    padding-top: 15px;
-    padding-right: 15px;
-    padding-left: 15px;
-    flex-direction: row;
-    @media (max-width: 769px){
-        margin-bottom: 15px;
-        padding-top: 25px;
-        padding-right: 25px;
-        padding-left: 25px;
-    }
-    @media (max-width: 415px){
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-    @media (max-width: 360px){
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-`;
-
-const Profile = styled.div`
-    border-radius: 100%;
-    width: 75px;
-    height: 75px;
-    background-size: cover;
-    background-position: center;
-    background-image: url("images/child.svg");
-    @media (max-width: 769px){
-        width: 100px;
-        height: 100px;
-    }
-`;
-const InfoWrapper = styled.div`
-    margin-left: 20px;
-    align-self: center;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    max-width: 250px;
-    @media (max-width: 769px){
-        margin-left: 25px;
-        max-width: 250px;
-    }
-    @media (max-width: 415px){
-        margin-left: 10px;
-        max-width: 200px;
-    }
-    @media (max-width: 360px){
-        margin-left: 10px;
-        max-width: 150px;
-    }
-
+    padding: 3em;
+    flex-direction: column;
 `;
 
 const Name = styled.div`
@@ -120,55 +51,16 @@ const Description = styled.span`
     text-overflow: ellipsis;
 `;
 
-const DescriptionWrapper = styled.div`
-    display: flex;
-    margin-top: 0px;
-    flex-direction: column;
-    justify-content: flex-start;
-    font-family: 'Inter beta', sans-serif;
-    font-weight: 300;
-    @media (max-width: 769px){
-        margin-top: 10px;
-    }
-
-`;
-
 const Commnet = styled.div`
-    margin-top: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    margin-left: 15px;
+    margin: auto;
     font-family: 'Inter beta', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    display: -webkit-box;
-    max-width: 400px;
-    height: 5em;
-    @media (max-width: 769px){
-        margin-right: 25px;
-        margin-bottom: 25px;
-        margin-left: 25px;
-        font-size: 16px;
-        font-weight: 300;
-    }
-    @media (max-width: 360px){
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-
+    display: box;
+    // max-width: 400px;
+    // height: 5em;
 `;
 
-const FoodImg = styled.div`
-    width: 353.5px;
-    height: 353.5px;
-    margin-top: auto; 
-    background-size: cover;
-    background-position: center;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-    background-image: url(${props => props.url});
-
-`;
 const Container = styled.div`
     height: auto;
     display: flex;
@@ -177,28 +69,50 @@ const Container = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: center;
+    z-index:10;
 `;
 
 const TitleBox = styled.div`
     font-family: Inter, sans-serif;
     margin-top: auto;
     width: 100%;
-    height: auto;
+    height: 15%;
     background-color: #ffffff;
-    opacity: 0.6;
-    @media (max-width: 769px){
-        font-size: 24px;
-        font-weight: 500;
-    }
+    opacity: 0.5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 `;
-const Title = styled.p`
-    font-family: Inter, sans-serif;
+const Title = styled.div`
     text-align: center;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 22px;
-    padding: 1em auto;
+    padding-top: 10px;
     color: black;
+    
 `;
+const DemoLink = styled.a`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid black;
+    width: 7em;
+    height: 80%;
+    margin: 0.1em;
+`;
+const Des = styled.div`
+    font-weight: 400;
+    padding-top: 0.2em;
+    color: black;
+    padding-left: 0.1em;
+`;
+
+const Img = styled.img`
+    width: 1.5em;
+    height: 1.5em;
+    margin: auto 0 auto;
+`;
+
 
 const ProjectCard = () => {
     const { info } = useContext(InfoContext);
@@ -218,17 +132,38 @@ const ProjectCard = () => {
     return isfront ? (
         <Container>
             {infoAll.map((project, i) => (
-                <CardFront path={project.image} key={i}>
+                <Card path={project.image} key={i} onClick= {flipCard}>
                     <TitleBox>
-                        <Title>{project.name}</Title>
+                        <Title>{project.name.toUpperCase()}</Title>
                     </TitleBox>
-
-                </CardFront>
+                </Card>
             ))}
         </Container>
 
     ) : (
-        <div></div>
+        <Container>
+            {infoAll.map((project, i) => (
+                <Card path={project.image} key={i} onClick= {flipCard}>
+                    <Wrapper>
+                        <Title>{project.name.toUpperCase()}</Title>
+                        <Commnet>{project.summary}</Commnet>
+
+                    </Wrapper>
+                   
+                    <TitleBox>
+                        <DemoLink href={project.githubUrl} target="_blank">
+                            <Img src="/images/github.svg" alt="github"></Img>
+                            <Des>GITHUB</Des>
+                        </DemoLink>
+                        <DemoLink href={project.website} target="_blank">
+                            <Img src="/images/play.svg" alt="play"></Img>
+                            <Des>DEMO</Des>
+                        </DemoLink>
+                    </TitleBox>
+                </Card>
+            ))}
+        </Container>
+
             // <Card>
             //     <Wrapper>
             //         <Profile profileUrl={recommendations.image_url} />
