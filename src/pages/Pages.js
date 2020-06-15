@@ -1,5 +1,5 @@
 import React, { useContext} from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import Me from './Me';
 import Projects from './Projects';
 import Work from './Work';
@@ -14,7 +14,7 @@ const Pages = () => {
         return <Loader />;
     }
     return (
-        <Router>
+        <HashRouter>
             <Switch>
                 <Route exact path="/">
                     <Me/>
@@ -29,7 +29,7 @@ const Pages = () => {
                     <Education/>
                 </Route>
             </Switch>
-        </Router>
+        </HashRouter>
 
     );
 

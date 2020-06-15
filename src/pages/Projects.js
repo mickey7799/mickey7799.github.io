@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { white } from '@carbon/colors';
 import React, { useContext } from 'react';
 import Layout from '../components/Layout/Layout';
-import { SectionTitle, Pill } from '../styles';
+import { SectionTitle} from '../styles';
 import { InfoContext } from "../contexts/infoContext";
 import ProjectCard from '../components/ProjectCard';
 
@@ -16,29 +16,13 @@ export const ProjectTitle = styled.h4`
   font-weight: bold;
 `
 
-export const SkillContainer = styled.div`
-  margin-top: 1.2rem;
-`
 const Projects = () => {
     const { info } = useContext(InfoContext);
     return (
       <Layout>
         <div>
           <SectionTitle>Projects</SectionTitle>
-          <ProjectCard/>
-          {/* <ul>
-            {info.projects.map((project, i) => (
-              <ProjectItem key={i}>
-                <ProjectTitle>{project.name}</ProjectTitle>
-                <p>{project.summary}</p>
-                <SkillContainer>
-                  {[...project.languages, ...project.libraries].map((item, j) => (
-                    <Pill key={j}>{item}</Pill>
-                  ))}
-                </SkillContainer>
-              </ProjectItem>
-            ))}
-          </ul> */}
+          <ProjectCard/> 
         </div>
       </Layout>
     );

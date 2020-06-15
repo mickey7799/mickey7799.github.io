@@ -5,8 +5,8 @@ import { InfoContext } from '../contexts/infoContext';
 
 const Card = styled.div`
     display: flex;
-    height: 15em;
-    width: 25em;
+    height: 15rem;
+    width: 25rem;
     margin: auto;
     margin-top: 20px;
     flex-direction: column;
@@ -23,44 +23,6 @@ const Card = styled.div`
     }
 `;
 
-const Wrapper = styled.div`
-    display: flex;
-    padding: 3em;
-    flex-direction: column;
-`;
-
-const Name = styled.div`
-    margin-bottom: 5px;
-    font-family: Inter, sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    @media (max-width: 769px){
-        font-size: 24px;
-        font-weight: 500;
-    }
-`;
-
-const Description = styled.span`
-    font-family: Inter, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-`;
-
-const Commnet = styled.div`
-    margin: auto;
-    font-family: 'Inter beta', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    display: box;
-    // max-width: 400px;
-    // height: 5em;
-`;
-
 const Container = styled.div`
     height: auto;
     display: flex;
@@ -75,6 +37,7 @@ const Container = styled.div`
 const TitleBox = styled.div`
     font-family: Inter, sans-serif;
     margin-top: auto;
+    margin-bottom: 0px;
     width: 100%;
     height: 15%;
     background-color: #ffffff;
@@ -82,6 +45,7 @@ const TitleBox = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    border-radius: 7px;
 `;
 const Title = styled.div`
     text-align: center;
@@ -89,8 +53,54 @@ const Title = styled.div`
     font-size: 22px;
     padding-top: 10px;
     color: black;
+`;
+
+const Wrapper = styled.div`
+    display: flex;
+    padding: 2em;
+    flex-direction: column;
+    background-color: black;
+    opacity: 0.7;
+    height: 100%;
+`;
+
+const TitleBack = styled.div`
+    text-align: center;
+    font-weight: 500;
+    font-size: 22px;
+    padding-bottom: 0.2em;
+    color: white;
     
 `;
+
+const Commnet = styled.div`
+    text-align: center;
+    margin: auto;
+    font-family: 'Inter beta', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    display: box;
+    line-height: 1.3;
+    // max-width: 400px;
+    height: 5em;
+`;
+
+const SkillContainer = styled.div`
+  margin-top: 1.2rem;
+`
+const SkillTag = styled.span`
+  display: inline-block;
+  margin-right: 0.75rem;
+  margin-bottom: 0rem;
+  padding: 0.5rem 1rem;
+  background-color: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 2px;
+  font-weight: 300;
+`;
+
+
 const DemoLink = styled.a`
     display: flex;
     flex-direction: row;
@@ -98,11 +108,11 @@ const DemoLink = styled.a`
     border: 1px solid black;
     width: 7em;
     height: 80%;
-    margin: 0.1em;
+    margin: 0.2em 0.1em 0.1em;
 `;
 const Des = styled.div`
     font-weight: 400;
-    padding-top: 0.2em;
+    margin: auto 0 auto;
     color: black;
     padding-left: 0.1em;
 `;
@@ -112,6 +122,8 @@ const Img = styled.img`
     height: 1.5em;
     margin: auto 0 auto;
 `;
+
+
 
 
 const ProjectCard = () => {
@@ -132,7 +144,7 @@ const ProjectCard = () => {
     return isfront ? (
         <Container>
             {infoAll.map((project, i) => (
-                <Card path={project.image} key={i} onClick= {flipCard}>
+                <Card path={project.image} key={i} onClick={flipCard}>
                     <TitleBox>
                         <Title>{project.name.toUpperCase()}</Title>
                     </TitleBox>
@@ -141,28 +153,33 @@ const ProjectCard = () => {
         </Container>
 
     ) : (
-        <Container>
-            {infoAll.map((project, i) => (
-                <Card path={project.image} key={i} onClick= {flipCard}>
-                    <Wrapper>
-                        <Title>{project.name.toUpperCase()}</Title>
-                        <Commnet>{project.summary}</Commnet>
+            <Container>
+                {infoAll.map((project, i) => (
+                    <Card path={project.image} key={i} onClick={flipCard}>
+                        <Wrapper>
+                            <TitleBack>{project.name.toUpperCase()}</TitleBack>
+                            <Commnet>{project.summary}</Commnet>
+                            <SkillContainer>
+                                {[...project.languages, ...project.libraries].map((item, j) => (
+                                    <SkillTag key={j}>{item}</SkillTag>
+                                ))}
+                            </SkillContainer>
 
-                    </Wrapper>
-                   
-                    <TitleBox>
-                        <DemoLink href={project.githubUrl} target="_blank">
-                            <Img src="/images/github.svg" alt="github"></Img>
-                            <Des>GITHUB</Des>
-                        </DemoLink>
-                        <DemoLink href={project.website} target="_blank">
-                            <Img src="/images/play.svg" alt="play"></Img>
-                            <Des>DEMO</Des>
-                        </DemoLink>
-                    </TitleBox>
-                </Card>
-            ))}
-        </Container>
+                        </Wrapper>
+
+                        <TitleBox>
+                            <DemoLink href={project.githubUrl} target="_blank">
+                                <Img src="/images/github.svg" alt="github"></Img>
+                                <Des>GITHUB</Des>
+                            </DemoLink>
+                            <DemoLink href={project.website} target="_blank">
+                                <Img src="/images/play.svg" alt="play"></Img>
+                                <Des>DEMO</Des>
+                            </DemoLink>
+                        </TitleBox>
+                    </Card>
+                ))}
+            </Container>
 
             // <Card>
             //     <Wrapper>
