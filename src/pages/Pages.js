@@ -10,10 +10,13 @@ import Loader from '../components/Loader';
 const Pages = () => {
 
     const { info } = useContext(InfoContext);
+    
     if (!info) {
         return <Loader />;
     }
+
     return (
+
         <HashRouter basename={process.env.PUBLIC_URL}>
             <Switch>
                 <Route exact path="/">

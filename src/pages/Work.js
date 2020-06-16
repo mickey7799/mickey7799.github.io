@@ -30,17 +30,22 @@ const Work = () => {
       <Layout>
         <div>
           <SectionTitle>Work</SectionTitle>
+
           <ul>
             {info.work.map((work, i) => (
               <WorkItem key={i}>
                 <WorkTitle>{work.position}</WorkTitle>
+
                 <div>
                   <JobTitle>{work.company}</JobTitle> <span>{work.location}</span>
+
                   <span> &sdot; </span>
+                  
                   <span>
                     {work.start.year}/{work.start.month} to {work.end.year}/{work.end.month}
                   </span>
                 </div>
+
                 <Paragraph>
                     {work.highlights.map((highlight, i) => (
                         <JobDescription>- {highlight}</JobDescription>
@@ -50,6 +55,7 @@ const Work = () => {
               </WorkItem>
             ))}
           </ul>
+
         </div>
       </Layout>
     );

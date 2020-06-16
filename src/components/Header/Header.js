@@ -6,10 +6,12 @@ import { HeaderContainer, MainHeader, Image, ViewResumeLink } from './styles';
 import { InfoContext } from '../../contexts/infoContext';
 
 const Header = () => {
+
   const { info } = useContext(InfoContext);
   const location = useLocation();
 
   return (
+    
     <HeaderContainer isHome={location.pathname === '/'}>
       <MainHeader>
         <Image src={info.basics.picture} />
@@ -31,6 +33,7 @@ const Header = () => {
         </div>
       </MainHeader>
       <div>
+
         <ViewResumeLink
           href={`https://gitconnected.com/${info.basics.username}/resume`}
           target="_blank"
@@ -38,6 +41,7 @@ const Header = () => {
         >
           <span>View Resume</span>
           <ArrowRight16 />
+
         </ViewResumeLink>
       </div>
     </HeaderContainer>

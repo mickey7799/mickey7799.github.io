@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Content } from 'carbon-components-react/lib/components/UIShell';
 import React from 'react';
+
 import Sidebar from '../Sidebar';
 import Header from '../Header/Header';
 import MobileNav from '../MobileNav/MobileNav';
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
       <>
         <MobileNav />
         <Sidebar />
+        
         <StyledContent>
           <Header />
           <div>{children}</div>

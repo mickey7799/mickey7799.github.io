@@ -23,27 +23,34 @@ export const Degree = styled.p`
 
 const Education = () => {
     const { info } = useContext(InfoContext);
+
     return (
       <Layout>
         <div>
           <SectionTitle>Education</SectionTitle>
+
           <ul>
             {info.education.map((education, i) => (
               <EducationItem key={i}>
                 <Institution>{education.institution}</Institution>
+
                 <div>
                   <Degree>
                     {education.studyType}, {education.area}
                   </Degree>{' '}
+
                   <span> &sdot; </span>
+                  
                   <span>
                     {education.start.year} to {education.end.year}
                   </span>
                 </div>
+
                 <Paragraph>{education.description.replace('\n\n', '\n')}</Paragraph>
               </EducationItem>
             ))}
           </ul>
+
         </div>
       </Layout>
     );

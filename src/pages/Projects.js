@@ -18,19 +18,13 @@ const Container = styled.div`
 
 const Projects = () => {
     const { info } = useContext(InfoContext);
-    // const images = ['feedme.jpg', 'voting.png', 'pacman.png', 'bitbox.jpg', 'whist.png', 'search.jpg'];
-    // let i = 0;
-    // let infoAll = info.projects.map(project => {
-    //     project.image = images[i];
-    //     i++;
-    //     return project;
-    // })
-    // console.log(infoAll);
+    
 
     return (
         <Layout>
             <div>
                 <SectionTitle>Projects</SectionTitle>
+                
                 <Container>
                     {info.projects.map((project, i) => (
                         <ProjectCard

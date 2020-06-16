@@ -17,7 +17,6 @@ const Card = styled.div`
     box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, .1);
     &:hover {
         cursor: pointer;
-        transform: rotateY(180deg);
     }
     @media (max-width: 769px){
         margin-top: 5em;
@@ -61,7 +60,6 @@ const TitleBack = styled.div`
     font-size: 22px;
     padding-bottom: 0.2em;
     color: white;
-    
 `;
 
 const Commnet = styled.div`
@@ -89,7 +87,6 @@ const SkillTag = styled.span`
   border-radius: 2px;
   font-weight: 300;
 `;
-
 
 const DemoLink = styled.a`
     display: flex;
@@ -127,6 +124,7 @@ const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, we
     }
 
     return isfront ? (
+
         <Card path={image} onClick={flipCard}>
             <TitleBox>
                 <Title>{name.toUpperCase()}</Title>
@@ -136,8 +134,11 @@ const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, we
     ) : (
             <Card path={image} onClick={flipCard}>
                 <Wrapper>
+
                     <TitleBack>{name.toUpperCase()}</TitleBack>
+                    
                     <Commnet>{summary}</Commnet>
+
                     <SkillContainer>
                         {[...languages, ...libraries].map((item, j) => (
                             <SkillTag key={j}>{item}</SkillTag>
@@ -147,14 +148,17 @@ const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, we
                 </Wrapper>
 
                 <TitleBox>
+
                     <DemoLink href={githubUrl} target="_blank">
                         <Img src="/images/github.svg" alt="github"></Img>
                         <Des>GITHUB</Des>
                     </DemoLink>
+
                     <DemoLink href={website} target="_blank">
                         <Img src="/images/play.svg" alt="play"></Img>
                         <Des>DEMO</Des>
                     </DemoLink>
+                    
                 </TitleBox>
             </Card>
         )

@@ -13,12 +13,14 @@ export const ProfileLink = styled.li`
 const Me = () => {
 
     const { info } = useContext(InfoContext);
+
     return (
         <Layout>
             <div>
                 <SectionTitle>About Me</SectionTitle>
                 <Paragraph>{info.basics.summary}</Paragraph>
             </div>
+
             <div>
                 <SectionTitle>Skills</SectionTitle>
                 <div>
@@ -27,6 +29,7 @@ const Me = () => {
                     ))}
                 </div>
             </div>
+            
             <div>
                 <SectionTitle>Profiles</SectionTitle>
                 <ul>
