@@ -8,6 +8,7 @@ const Card = styled.div`
     margin: auto;
     margin-top: 20px;
     flex-direction: column;
+    align-items: flex-start;
     border: 0.75px solid #e5e5e5;
     border-radius: 7px;
     background-image: url("${props => props.path}");
@@ -17,7 +18,12 @@ const Card = styled.div`
     &:hover {
         cursor: pointer;
     }
+    @media (max-width: 769px){
+        margin-top: 5em;
+        min-width: 353.5px;
+    }
 `;
+
 const TitleBox = styled.div`
     font-family: Inter, sans-serif;
     margin-top: auto;
@@ -33,11 +39,12 @@ const TitleBox = styled.div`
 `;
 const Title = styled.div`
     text-align: center;
-    font-weight: ${props => props.isfront ? '500' : '650'};
+    font-weight: 500;
     font-size: 22px;
-    padding-top: ${props => props.isfront ? '10px' : '0'};
-    color: ${props => props.isfront ? 'black' : 'white'};
+    padding-top: 10px;
+    color: black;
 `;
+
 const Wrapper = styled.div`
     display: flex;
     padding: 2em;
@@ -46,14 +53,26 @@ const Wrapper = styled.div`
     opacity: 0.7;
     height: 100%;
 `;
+
+const TitleBack = styled.div`
+    text-align: center;
+    font-weight: 650;
+    font-size: 22px;
+    padding-bottom: 0.2em;
+    color: white;
+`;
+
 const Commnet = styled.div`
     text-align: center;
     margin: auto;
     font-family: 'Inter beta', sans-serif;
     font-weight: 450;
+    font-size: 14px;
+    display: box;
     line-height: 1.3;
     height: 5em;
 `;
+
 const SkillContainer = styled.div`
   margin-top: 1.2rem;
 `
@@ -66,7 +85,9 @@ const SkillTag = styled.span`
   color: white;
   border: 1px solid white;
   border-radius: 2px;
+  font-weight: 300;
 `;
+
 const DemoLink = styled.a`
     display: flex;
     flex-direction: row;
@@ -75,6 +96,9 @@ const DemoLink = styled.a`
     width: 7em;
     height: 80%;
     margin: 0.2em 0.1em 0.1em;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 const Des = styled.div`
     font-weight: 400;
@@ -82,6 +106,7 @@ const Des = styled.div`
     color: black;
     padding-left: 0.1em;
 `;
+
 const Img = styled.img`
     width: 1.5em;
     height: 1.5em;
@@ -102,7 +127,7 @@ const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, we
 
         <Card path={image} onClick={flipCard}>
             <TitleBox>
-                <Title isfront={isfront}>{name.toUpperCase()}</Title>
+                <Title>{name.toUpperCase()}</Title>
             </TitleBox>
         </Card>
 
@@ -110,7 +135,7 @@ const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, we
             <Card path={image} onClick={flipCard}>
                 <Wrapper>
 
-                    <Title isfront={isfront}>{name.toUpperCase()}</Title>
+                    <TitleBack>{name.toUpperCase()}</TitleBack>
                     
                     <Commnet>{summary}</Commnet>
 
