@@ -11,10 +11,14 @@ const Card = styled.div`
     align-items: flex-start;
     border: 0.75px solid #e5e5e5;
     border-radius: 7px;
-    background-image: url("/images/${props => props.path}");
+    background-image: url("${props => props.path}");
     background-size: cover;
     background-position: center;
     box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, .1);
+    &:hover {
+        cursor: pointer;
+        transform: rotateY(180deg);
+    }
     @media (max-width: 769px){
         margin-top: 5em;
         min-width: 353.5px;
@@ -53,7 +57,7 @@ const Wrapper = styled.div`
 
 const TitleBack = styled.div`
     text-align: center;
-    font-weight: 500;
+    font-weight: 650;
     font-size: 22px;
     padding-bottom: 0.2em;
     color: white;
@@ -64,11 +68,10 @@ const Commnet = styled.div`
     text-align: center;
     margin: auto;
     font-family: 'Inter beta', sans-serif;
-    font-weight: 300;
+    font-weight: 450;
     font-size: 14px;
     display: box;
     line-height: 1.3;
-    // max-width: 400px;
     height: 5em;
 `;
 
@@ -96,6 +99,9 @@ const DemoLink = styled.a`
     width: 7em;
     height: 80%;
     margin: 0.2em 0.1em 0.1em;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 const Des = styled.div`
     font-weight: 400;
