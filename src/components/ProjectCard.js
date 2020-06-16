@@ -23,17 +23,6 @@ const Card = styled.div`
     }
 `;
 
-const Container = styled.div`
-    height: auto;
-    display: flex;
-    padding-top: 1%;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-content: center;
-    z-index:10;
-`;
-
 const TitleBox = styled.div`
     font-family: Inter, sans-serif;
     margin-top: auto;
@@ -126,84 +115,47 @@ const Img = styled.img`
 
 
 
-const ProjectCard = () => {
-    const { info } = useContext(InfoContext);
+const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, website }) => {
+
     const [isfront, setBack] = useState(true);
-    const images = ['feedme.jpg', 'voting.png', 'pacman.png', 'bitbox.jpg', 'whist.png', 'search.jpg'];
-    let i = 0;
-    let infoAll = info.projects.map(project => {
-        project.image = images[i];
-        i++;
-        return project;
-    })
+
 
     const flipCard = () => {
+
         setBack(!isfront);
     }
 
     return isfront ? (
-        <Container>
-            {infoAll.map((project, i) => (
-                <Card path={project.image} key={i} onClick={flipCard}>
-                    <TitleBox>
-                        <Title>{project.name.toUpperCase()}</Title>
-                    </TitleBox>
-                </Card>
-            ))}
-        </Container>
+        <Card path={image} key={i} onClick={flipCard}>
+            <TitleBox>
+                <Title>{name.toUpperCase()}</Title>
+            </TitleBox>
+        </Card>
 
     ) : (
-            <Container>
-                {infoAll.map((project, i) => (
-                    <Card path={project.image} key={i} onClick={flipCard}>
-                        <Wrapper>
-                            <TitleBack>{project.name.toUpperCase()}</TitleBack>
-                            <Commnet>{project.summary}</Commnet>
-                            <SkillContainer>
-                                {[...project.languages, ...project.libraries].map((item, j) => (
-                                    <SkillTag key={j}>{item}</SkillTag>
-                                ))}
-                            </SkillContainer>
+            <Card path={image} key={i} onClick={flipCard}>
+                <Wrapper>
+                    <TitleBack>{name.toUpperCase()}</TitleBack>
+                    <Commnet>{summary}</Commnet>
+                    <SkillContainer>
+                        {[...languages, ...libraries].map((item, j) => (
+                            <SkillTag key={j}>{item}</SkillTag>
+                        ))}
+                    </SkillContainer>
 
-                        </Wrapper>
+                </Wrapper>
 
-                        <TitleBox>
-                            <DemoLink href={project.githubUrl} target="_blank">
-                                <Img src="/images/github.svg" alt="github"></Img>
-                                <Des>GITHUB</Des>
-                            </DemoLink>
-                            <DemoLink href={project.website} target="_blank">
-                                <Img src="/images/play.svg" alt="play"></Img>
-                                <Des>DEMO</Des>
-                            </DemoLink>
-                        </TitleBox>
-                    </Card>
-                ))}
-            </Container>
-
-            // <Card>
-            //     <Wrapper>
-            //         <Profile profileUrl={recommendations.image_url} />
-            //         <InfoWrapper>
-            //             <Name>{recommendations.name}</Name>
-            //             <DescriptionWrapper>
-            //                 <div>Food expert of</div>
-            //                 <Description> {recommendations.categories[0].title} </Description>
-            //             </DescriptionWrapper>
-            //         </InfoWrapper>
-            //     </Wrapper>
-            //     <Commnet>
-            //         <LinesEllipsis
-            //             text={'This fantastic restaurant is a ' + recommendations.categories[0].title + ' restaurant! It received ' + recommendations.review_count + ' reviews and got a rating of ' + recommendations.rating + ". Come and try it!"}
-            //             maxLine='3'
-            //             ellipsis='...'
-            //             trimRight
-            //         />
-            //     </Commnet>
-            //     <FoodImg url={recommendations.image_url} />
-
-            // </Card>
-
+                <TitleBox>
+                    <DemoLink href={githubUrl} target="_blank">
+                        <Img src="/images/github.svg" alt="github"></Img>
+                        <Des>GITHUB</Des>
+                    </DemoLink>
+                    <DemoLink href={website} target="_blank">
+                        <Img src="/images/play.svg" alt="play"></Img>
+                        <Des>DEMO</Des>
+                    </DemoLink>
+                </TitleBox>
+            </Card>
         )
 }
 
