@@ -1,7 +1,5 @@
-import React, { useContext, useState } from 'react';
-//import LinesEllipsis from 'react-lines-ellipsis';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { InfoContext } from '../contexts/infoContext';
 
 const Card = styled.div`
     display: flex;
@@ -113,27 +111,24 @@ const Img = styled.img`
 `;
 
 
-
-
 const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, website }) => {
 
     const [isfront, setBack] = useState(true);
 
 
     const flipCard = () => {
-
         setBack(!isfront);
     }
 
     return isfront ? (
-        <Card path={image} key={i} onClick={flipCard}>
+        <Card path={image} onClick={flipCard}>
             <TitleBox>
                 <Title>{name.toUpperCase()}</Title>
             </TitleBox>
         </Card>
 
     ) : (
-            <Card path={image} key={i} onClick={flipCard}>
+            <Card path={image} onClick={flipCard}>
                 <Wrapper>
                     <TitleBack>{name.toUpperCase()}</TitleBack>
                     <Commnet>{summary}</Commnet>

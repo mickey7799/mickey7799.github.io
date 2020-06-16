@@ -1,20 +1,9 @@
 import styled from 'styled-components';
-import { white } from '@carbon/colors';
 import React, { useContext } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../styles';
 import { InfoContext } from "../contexts/infoContext";
 import ProjectCard from '../components/ProjectCard';
-
-const ProjectItem = styled.li`
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid ${white};
-`
-
-const ProjectTitle = styled.h4`
-  font-weight: bold;
-`
 
 const Container = styled.div`
     height: auto;
@@ -36,6 +25,7 @@ const Projects = () => {
         i++;
         return project;
     })
+    console.log(infoAll);
 
     return (
         <Layout>
@@ -51,6 +41,7 @@ const Projects = () => {
                             libraries={project.libraries}
                             githubUrl={project.githubUrl}
                             website={project.website}
+                            key= {i}
                         />
                     ))}
                 </Container>
