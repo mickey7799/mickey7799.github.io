@@ -119,24 +119,32 @@ const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, we
     const [isfront, setBack] = useState(true);
 
 
+    const handleMouseLeave = () => {
+        if (!isfront) {
+            setBack(!isfront);
+        }
+
+    }
+
     const flipCard = () => {
         setBack(!isfront);
+
     }
 
     return isfront ? (
 
-        <Card path={image} onClick={flipCard}>
+        <Card path={image} onClick={flipCard} >
             <TitleBox>
                 <Title>{name.toUpperCase()}</Title>
             </TitleBox>
         </Card>
 
     ) : (
-            <Card path={image} onClick={flipCard}>
+            <Card path={image} onClick={flipCard} onMouseLeave={handleMouseLeave}>
                 <Wrapper>
 
                     <TitleBack>{name.toUpperCase()}</TitleBack>
-                    
+
                     <Commnet>{summary}</Commnet>
 
                     <SkillContainer>
@@ -158,7 +166,7 @@ const ProjectCard = ({ name, image, summary, languages, libraries, githubUrl, we
                         <Img src="/images/play.svg" alt="play"></Img>
                         <Des>DEMO</Des>
                     </DemoLink>
-                    
+
                 </TitleBox>
             </Card>
         )
