@@ -1,15 +1,13 @@
-import React from 'react'
-import { User32, Code32, Portfolio32, Education32 } from '@carbon/icons-react'
+import React from "react";
+import {User32, Code32, Portfolio32, Education32} from "@carbon/icons-react";
 
-import { Container, Spacer, NavWrapper, NavButton, NavLink } from './styles'
+import {Container, Spacer, NavWrapper, NavButton, NavLink} from "./styles";
 
 const MobileNav = () => {
-  
   return (
     <Container>
       <Spacer />
       <NavWrapper>
-
         <NavLink to="/">
           <NavButton
             hasIconOnly
@@ -45,10 +43,9 @@ const MobileNav = () => {
             tooltipPosition="bottom"
           />
         </NavLink>
-
       </NavWrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default MobileNav
+export default MobileNav;

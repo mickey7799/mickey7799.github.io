@@ -1,18 +1,16 @@
-import React, { useContext } from 'react';
-import { useLocation } from 'react-router-dom';
-import { ArrowRight16 } from '@carbon/icons-react';
+import React, {useContext} from "react";
+import {useLocation} from "react-router-dom";
+import {ArrowRight16} from "@carbon/icons-react";
 
-import { HeaderContainer, MainHeader, Image, ViewResumeLink } from './styles';
-import { InfoContext } from '../../contexts/infoContext';
+import {HeaderContainer, MainHeader, Image, ViewResumeLink} from "./styles";
+import {InfoContext} from "../../contexts/infoContext";
 
 const Header = () => {
-
-  const { info } = useContext(InfoContext);
+  const {info} = useContext(InfoContext);
   const location = useLocation();
 
   return (
-    
-    <HeaderContainer isHome={location.pathname === '/'}>
+    <HeaderContainer isHome={location.pathname === "/"}>
       <MainHeader>
         <Image src={info.basics.picture} />
         <div>
@@ -29,11 +27,9 @@ const Header = () => {
           <p>{info.basics.label}</p>
           <p>{info.basics.region}</p>
           <p>{info.basics.headline}</p>
-          
         </div>
       </MainHeader>
       <div>
-
         <ViewResumeLink
           href={`https://gitconnected.com/${info.basics.username}/resume`}
           target="_blank"
@@ -41,7 +37,6 @@ const Header = () => {
         >
           <span>View Resume</span>
           <ArrowRight16 />
-
         </ViewResumeLink>
       </div>
     </HeaderContainer>
